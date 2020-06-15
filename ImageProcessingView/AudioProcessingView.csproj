@@ -70,10 +70,21 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.0.1045, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.1.0-ci1045\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="OxyPlot">
+      <HintPath>.\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf">
+      <HintPath>.\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Xps">
+      <HintPath>.\OxyPlot.Xps.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,9 +104,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FilterView.xaml.cs">
+      <DependentUpon>FilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operations\Equalizer.xaml.cs">
+      <DependentUpon>Equalizer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operations\FrequencyDomainFilter.xaml.cs">
+      <DependentUpon>FrequencyDomainFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operations\IFilter.cs" />
+    <Compile Include="Operations\TimeDomainFilter.xaml.cs">
+      <DependentUpon>TimeDomainFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SegmentationView.xaml.cs">
       <DependentUpon>SegmentationView.xaml</DependentUpon>
     </Compile>
+    <Page Include="FilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,6 +141,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Operations\Contrast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operations\Equalizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operations\FrequencyDomainFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operations\TimeDomainFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

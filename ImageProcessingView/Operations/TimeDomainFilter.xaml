@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="ImageProcessingView.Operations.TimeDomainFilter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImageProcessingView.Operations"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text='Window function:' VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                  HorizontalAlignment="Center" Margin="0 20 0 0"
+                  ItemsSource="{Binding Windows , Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedWindow, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock Text='Filter Length:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 80 0 0"/>
+        <TextBox x:Name="FilterLength" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 100 0 0"/>
+        <TextBlock Text='Cut Frequency:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 160 0 0"/>
+        <TextBox x:Name="CutFrequency" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 180 0 0"/>
+    </Grid>
+</UserControl>

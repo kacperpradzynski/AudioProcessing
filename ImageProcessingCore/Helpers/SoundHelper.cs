@@ -61,6 +61,55 @@ namespace ImageProcessingCore.Helpers
             return result;
         }
 
+        public static WavModel GenerateWavFromInput(WavModel input, double[] samples)
+        {
+            var result = new WavModel();
+            var samplesSize = input.Subchunk2Size / (input.BitsPerSample / 8);
+
+
+            
+            result.RawData = new byte[input.RawData.Length];
+            switch (input.BitsPerSample)
+            {
+                case 64:
+                    var samples64 = new long[samplesSize];
+                    samples64 = Array.ConvertAll(samples, e => (long)e);
+                    Buffer.BlockCopy(samples64, 0, result.RawData, 0, input.Subchunk2Size);
+                    break;
+                case 32:
+                    var samples32 = new int[samplesSize];
+                    samples32 = Array.ConvertAll(samples, e => (int)e);
+                    Buffer.BlockCopy(samples32, 0, result.RawData, 0, input.Subchunk2Size);
+                    break;
+                case 16:
+                    var samples16 = new short[samplesSize];
+                    samples16 = Array.ConvertAll(samples, e => (short)e);
+                    Buffer.BlockCopy(samples16, 0, result.RawData, 0, input.Subchunk2Size);
+                    break;
+            }
+            result.ChunkId = input.ChunkId;
+            result.ChunkSize = input.ChunkSize;
+            result.Format = input.Format;
+
+            result.Subchunk1Id = input.Subchunk1Id;
+            result.Subchunk1Size = input.Subchunk1Size;
+            result.AudioFormat = input.AudioFormat;
+            result.NumChannels = input.NumChannels;
+            result.SampleRate = input.SampleRate;
+            result.ByteRate = input.ByteRate;
+            result.BlockAlign = input.BlockAlign;
+            result.BitsPerSample = input.BitsPerSample;
+            result.ExtraData = input.ExtraData;
+
+
+            result.Subchunk2Id = input.Subchunk2Id;
+            result.Subchunk2Size = input.Subchunk2Size;
+
+            result.Samples = samples;
+
+            return result;
+        }
+
         public static WavModel GenerateWavFromInput(WavModel input, double[][] newChunkedSamples)
         {
             var result = new WavModel();
@@ -113,6 +162,7 @@ namespace ImageProcessingCore.Helpers
             result.Subchunk2Size = input.Subchunk2Size;
 
             result.ChunkedSamples = newChunkedSamples;
+            result.Samples = samples;
 
             return result;
         }

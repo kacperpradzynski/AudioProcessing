@@ -24,5 +24,6 @@ namespace ImageProcessingCore
         public byte[] RawData { get; internal set; }
         public double[][] ChunkedSamples { get; internal set; }
         public byte[] ExtraData { get; internal set; }
+        public double[] Samples { get; internal set; }
     }
 }

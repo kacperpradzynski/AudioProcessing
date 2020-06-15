@@ -23,6 +23,7 @@
                   SelectedItem="{Binding SelectedOperation, Mode=TwoWay}" VerticalAlignment="Top"/>
 
         <local:SegmentationView Visibility="Visible" x:Name="SegmentationUserControl" Margin="305,10,10,40"></local:SegmentationView>
+        <local:FilterView Visibility="Collapsed" x:Name="FilterUserControl" Margin="305,10,10,40"></local:FilterView>
 
         <Button
             Click="Apply_Click"
@@ -47,6 +48,17 @@
                             Kind="FolderOpenOutline" />
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem
+                    Header="Save Output Sound"
+                    Click="Save_Click"
+                    Visibility="Collapsed"
+                    IsEnabled="False"
+                    x:Name="SaveMenuButton">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon
+                            Kind="ContentSaveOutline" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem
                 Header="{Binding InputFileName}" IsEnabled="False"
@@ -57,9 +69,14 @@
                             Kind="MusicNote" />
                 </MenuItem.Icon>
             </MenuItem>
+            <TextBlock Text="{Binding Path=CalculationTime, 
+                 StringFormat='Processing time: {0}ms'}" />
         </Menu>
 
         <operations:Brightness x:Name="Brightness" Visibility="Collapsed" Margin="8,195,0,0" Height="385" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"></operations:Brightness>
         <operations:Contrast x:Name="Contrast" Visibility="Collapsed" Margin="8,195,0,0" Height="385" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"></operations:Contrast>
+        <operations:TimeDomainFilter x:Name="TimeDomainFilterUserControl" Visibility="Collapsed" Margin="8,195,0,0" Height="385" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"></operations:TimeDomainFilter>
+        <operations:FrequencyDomainFilter x:Name="FrequencyDomainFilterUserControl" Visibility="Collapsed" Margin="8,195,0,0" Height="385" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"></operations:FrequencyDomainFilter>
+        <operations:Equalizer x:Name="EqualizerUserControl" Visibility="Collapsed" Margin="8,195,0,0" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"></operations:Equalizer>
     </Grid>
 </Window>

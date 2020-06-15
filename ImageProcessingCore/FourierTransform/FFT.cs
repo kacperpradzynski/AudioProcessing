@@ -12,6 +12,24 @@ namespace ImageProcessingCore.FourierTransform
 {
     public static class FFT
     {
+        public static Complex[] FastTransform(double[] data)
+        {
+            var complexData = data.Select(c => (Complex)c).ToArray();
+
+            Transform(complexData);
+
+            return complexData;
+        }
+
+        public static double[] IFastTransform(Complex[] complexData)
+        {
+            Conjugate(complexData);
+            Transform(complexData);
+            Conjugate(complexData);
+
+            return complexData.Select(c => (c / complexData.Length).Real).ToArray();
+        }
+
         public static void Transform(Complex[] buffer)
         {
             int bits = (int)Math.Log(buffer.Length, 2);
@@ -65,6 +83,25 @@ namespace ImageProcessingCore.FourierTransform
             }
 
             return ((reversedN << count) & ((1 << bits) - 1));
+        }
+
+        public static void Conjugate(Complex[] data)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = Complex.Conjugate(data[i]);
+            }
+        }
+
+        public static double[] ReduceToPow2(double[] data)
+        {
+            var length = (int)Math.Log(data.Length,2);
+            return data.Take((int)Math.Pow(2, length)).ToArray();
+        }
+
+        public static int GetExpandedPow2(int length)
+        {
+            return (int)Math.Pow(2, (int)Math.Log(length, 2) + 1);
         }
     }
 }

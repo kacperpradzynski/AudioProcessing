@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ImageProcessingView.Operations.FrequencyDomainFilter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImageProcessingView.Operations"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text='Window function:' VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                  HorizontalAlignment="Center" Margin="0 0 0 0"
+                  ItemsSource="{Binding Windows , Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedWindow, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock Text='Window Length:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 60 0 0"/>
+        <TextBox x:Name="WindowLength" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 80 0 0"/>
+        <TextBlock Text='Window Hop-Size:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 120 0 0"/>
+        <TextBox x:Name="WindowHopSize" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 140 0 0"/>
+        <TextBlock Text='Filter Length:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 180 0 0"/>
+        <TextBox x:Name="FilterLength" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 200 0 0"/>
+        <TextBlock Text='Cut Frequency:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 240 0 0"/>
+        <TextBox x:Name="CutFrequency" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 260 0 0"/>
+        <TextBlock Text='N:' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 300 0 0"/>
+        <TextBox x:Name="NCoefficient" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Width="200" Margin="0 320 0 0"/>
+        <CheckBox x:Name="IsCausal" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Margin="0 365 0 0"
+    Style="{StaticResource MaterialDesignCheckBox}">
+            Is Filter Causal
+        </CheckBox>
+    </Grid>
+</UserControl>

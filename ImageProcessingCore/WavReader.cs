@@ -61,6 +61,7 @@ namespace ImageProcessingCore
                         break;
                 }
 
+                output.Samples = samples;
                 var numberOfChunks = samplesSize / SoundHelper.GetWindowSize(output.SampleRate);
                 var chunkedSamples = new double[numberOfChunks][];
 
