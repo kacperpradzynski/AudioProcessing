@@ -55,7 +55,7 @@
     <Compile Include="FourierTransform\IWindow.cs" />
     <Compile Include="FourierTransform\RectangularWindow.cs" />
     <Compile Include="FrequencyFinders\AutocorrelationOperator.cs" />
-    <Compile Include="FrequencyFinders\CepstralOperator.cs" />
+    <Compile Include="FrequencyFinders\FourierSpectrumAnalysis.cs" />
     <Compile Include="Helpers\FilterHelper.cs" />
     <Compile Include="Helpers\SoundHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

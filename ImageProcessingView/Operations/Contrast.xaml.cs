@@ -77,7 +77,7 @@ namespace ImageProcessingView.Operations
                     window = 3;
                     break;
             }
-            return new CepstralOperator(window);
+            return new FourierSpectrumAnalysis(window);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

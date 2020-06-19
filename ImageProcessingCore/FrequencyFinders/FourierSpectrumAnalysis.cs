@@ -10,10 +10,10 @@ using ImageProcessingCore.FourierTransform;
 
 namespace ImageProcessingCore.FrequencyFinders
 {
-    public class CepstralOperator : IProcessingStrategy
+    public class FourierSpectrumAnalysis : IProcessingStrategy
     {
         private int selectedWindow;
-        public CepstralOperator(int selectedWindow)
+        public FourierSpectrumAnalysis(int selectedWindow)
         {
             this.selectedWindow = selectedWindow;
         }
